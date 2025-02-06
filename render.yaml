@@ -11,7 +11,7 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: backend.backend.settings
       - key: DATABASE_URL
-        sync: false # Ensure it's set manually in Render
+        value: postgresql://postgres.ukdklckkxjutbvrvvbix:0PZJ7lIEjTo25ySg@aws-0-eu-central-1.pooler.supabase.com:6543/postgres
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
