@@ -21,7 +21,7 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,10 +127,6 @@ USE_TZ = True
 #-----------add----------------
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #-----------end----------------
 
 #-----------add----------------
