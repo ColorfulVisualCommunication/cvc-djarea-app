@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: cvc-djarea-app
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python backend/manage.py collectstatic --noinput
+      cd frontend && npm install && npm run build
+    startCommand: gunicorn backend.backend.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: backend.backend.settings
+      - key: DATABASE_URL
+        sync: false # Ensure it's set manually in Render
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "*"
+      - key: CORS_ALLOW_ALL_ORIGINS
+        value: "True"
